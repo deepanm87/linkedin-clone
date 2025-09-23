@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main>
+    <main className="flex">
       <h1>LinkedIn clone</h1>
     </main>
 
