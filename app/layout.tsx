@@ -1,17 +1,7 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
 import Header from "@/components/Header/Header"
+import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 export const metadata: Metadata = {
   title: "LinkedIn clone",
@@ -24,19 +14,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className="min-h-screen flex flex-col"
-      >
-        <header className="border-b sticky top-0 bg-white z-50">
-          <Header />
-        </header>
-        <div className="bg-[#F4F2ED] flex-1 w-full">
-          <main>
-            {children}
-          </main>
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className="min-h-screen flex flex-col"
+        >
+          <header className="border-b sticky top-0 bg-white z-50">
+            <Header />
+          </header>
+          <div className="bg-[#F4F2ED] flex-1 w-full">
+            <main>
+              {children}
+            </main>
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
