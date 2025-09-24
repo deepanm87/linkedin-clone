@@ -1,8 +1,21 @@
+import UserInformation from "@/components/UserInformation/UserInformation"
+
 export default function Home() {
   return (
-    <main className="flex">
-      <h1>LinkedIn clone</h1>
-    </main>
+    <div className="flex">
+      <section>
+        <UserInformation />
+      </section>
+
+      <section>
+
+      </section>
+
+      <section>
+
+      </section>
+
+    </div>
 
   )
 }
