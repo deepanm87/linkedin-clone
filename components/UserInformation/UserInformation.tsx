@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 import { Button } from "@/components/ui/button"
 
+
 export default async function UserInformation() {
   const user = await currentUser()
 
@@ -13,16 +14,17 @@ export default async function UserInformation() {
 
   return (
     <div className="flex flex-col justify-center items-center bg-white mr-6 rounded-lg border py-4">
+      
       <Avatar>
         { user?.id ? (
-          <AvatarImage src={imageUrl} />
-        ) : (
-          <AvatarImage src="https://github.com/shadcn.png" />
-        )}
-        <AvatarFallback>
-          {firstName?.charAt(0)} 
-          {lastName?.charAt(0)}
-        </AvatarFallback>
+              <AvatarImage src={imageUrl} />
+            ) : (
+              <AvatarImage src="https://github.com/shadcn.png" />
+            )}
+            <AvatarFallback>
+              {firstName?.charAt(0)} 
+              {lastName?.charAt(0)}
+            </AvatarFallback>
       </Avatar>
 
       <SignedIn>
